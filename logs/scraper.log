@@ -144,3 +144,10 @@
 2025-04-18 02:52:31,822 - scraper.utils - WARNING - ⚠️ No se pudo obtener HTML de Tkambio
 2025-04-18 02:52:32,176 - scraper.utils - INFO - ✅ CambioSeguro -> Compra: 3.7045, Venta: 3.7385
 2025-04-18 02:52:32,996 - scraper.utils - INFO - ✅ TuCambista -> Compra: 3.7045, Venta: 3.7385
+2025-04-18 02:53:33,704 - scraper.utils - INFO - 🚀 Iniciando scraping de tasas de cambio...
+2025-04-18 02:53:36,715 - scraper.utils - INFO - ✅ Kambista -> Compra: 3.708, Venta: 3.742
+2025-04-18 02:53:38,639 - scraper.utils - ERROR - Error Selenium en https://tkambio.com/: Message: Service /home/myuser/.wdm/drivers/chromedriver/linux64/114.0.5735.90/chromedriver unexpectedly exited. Status code was: 127
+
+2025-04-18 02:53:38,640 - scraper.utils - WARNING - ⚠️ No se pudo obtener HTML de Tkambio
+2025-04-18 02:53:39,032 - scraper.utils - INFO - ✅ CambioSeguro -> Compra: 3.7045, Venta: 3.7385
+2025-04-18 02:53:39,795 - scraper.utils - INFO - ✅ TuCambista -> Compra: 3.7045, Venta: 3.7385
