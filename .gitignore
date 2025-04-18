@@ -1,0 +1,53 @@
+# Directorios completos a ignorar
+/data/
+/logs/
+/__pycache__/
+/.pytest_cache/
+/screenshots/
+/downloads/
+/selenium_drivers/
+
+# Archivos específicos
+*.log
+*.csv
+*.json
+*.db
+*.sqlite
+*.pid
+*.pyc
+*.pyo
+*.pyd
+.DS_Store
+.env
+.env.local
+.venv
+venv/
+*.swp
+*.swo
+
+# ChromeDriver y binarios
+chromedriver*
+geckodriver
+*.exe
+
+# Configuraciones de IDE
+.idea/
+.vscode/
+*.code-workspace
+
+# Entornos virtuales
+ENV/
+env/
+venv/
+.benv/
+pythonenv*
+
+# Archivos de Selenium
+*.png
+*.jpg
+*.har
+
+# Archivos temporales
+*.tmp
+*.bak
+*~
