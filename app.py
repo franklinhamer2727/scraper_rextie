@@ -15,7 +15,7 @@ csv_file = "data/rextie_dolar.csv"
 FUENTE_COLORS = {
     "Kambista": "blue",
     "Tkambio": "green",
-    "Rextie": "red",  # Añadir más fuentes según sea necesario
+    "CambioSeguro": "red",  # Añadir más fuentes según sea necesario
 }
 
 @st.cache_data(ttl=60)
@@ -119,7 +119,6 @@ fig_hist.update_layout(
 st.plotly_chart(fig_hist, use_container_width=True)
 
 # 5. Gráfico de evolución del tipo de cambio por empresa (fuente)
-st.subheader("📊 Evolución del Tipo de Cambio por Empresa")
 
 # Auto-refresh en el dashboard cada 60 segundos
 time.sleep(60)  # Pausa de 60 segundos antes de hacer el refresh
