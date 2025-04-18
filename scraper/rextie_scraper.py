@@ -135,3 +135,45 @@ class RextieScraper:
         except Exception as e:
             self.logger.error(f"Error crítico al parsear Rextie: {str(e)}", exc_info=True)
             return None
+
+    def parse_data_cambioseguro(self, html):
+        try:
+            soup = BeautifulSoup(html, 'html.parser')
+            prices = soup.find_all("span", class_="value-rate")
+            self.logger.debug(f"Precios encontrados en Tkambio: {len(prices)}")
+
+            if len(prices) >= 2:
+                compra = prices[0].get_text(strip=True)
+                venta = prices[1].get_text(strip=True)
+                return {"compra": compra, "venta": venta}
+            return None
+        except Exception as e:
+            self.logger.error(f"Error al parsear HTML de Tkambio: {e}")
+            return None
+
+    def parse_data_tucambista(self, html):
+        try:
+            soup = BeautifulSoup(html, 'html.parser')
+            exchange_buttons = soup.find_all('button', class_="styles_exchange-tc__i_VIj")
+
+            if len(exchange_buttons) >= 2:
+                # Compra es el primer botón (estilo normal)
+                buy_div = exchange_buttons[0].find('div', class_='relative')
+                buy_price = buy_div.find_all('span')[0].text.strip() if buy_div else '0.000'
+
+                # Venta es el segundo botón (estilo resaltado)
+                sell_div = exchange_buttons[1].find('div', class_='relative')
+                sell_price = sell_div.find_all('span')[0].text.strip() if sell_div else '0.000'
+
+                # Convertimos a float, manejando posibles comas como separadores decimales
+                return {
+                    'compra': float(buy_price.replace(',', '')),
+                    'venta': float(sell_price.replace(',', ''))
+                }
+            else:
+                self.logger.warning("No se encontraron suficientes botones de cambio")
+                return None
+
+        except Exception as e:
+            self.logger.error(f"Error al parsear HTML de Tucambista: {e}")
+            return None
