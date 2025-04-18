@@ -67,6 +67,8 @@ if __name__ == "__main__":
     urls = {
         "Kambista": "https://kambista.com/",
         "Tkambio": "https://tkambio.com/",
+        'CambioSeguro': "https://cambioseguro.com/",
+        "TuCambista": "https://tucambista.pe/"
     }
 
     for nombre, url in urls.items():
@@ -80,7 +82,9 @@ if __name__ == "__main__":
 
             if "kambista" in url:
                 data = scraper.parse_data_kambista(html)
-            else:
+            elif "cambioseguro" in url:
+                data = scraper.parse_data_cambioseguro(html)
+            elif "tkambio" in url:
                 data = scraper.parse_data_tkambio(html)
 
             if data:
